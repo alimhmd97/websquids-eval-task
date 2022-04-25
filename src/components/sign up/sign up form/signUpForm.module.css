@@ -1,0 +1,46 @@
+.logo_wrapper {
+  width: 7vw;
+  margin: auto;
+  margin-top: 5vh;
+}
+.logo_wrapper img {
+  width: 100%;
+}
+
+.sign_up_options:before {
+  content: "";
+  width: 70px;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  top: 585px;
+  left: 511px;
+}
+.sign_up_options:after {
+  content: "";
+  width: 70px;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  top: 585px;
+
+  left: 765px;
+}
+.sign_up_options {
+  font-size: 0.8rem;
+}
+.sign_up_btn {
+  background-color: #2e3190 !important;
+  color: white !important;
+  margin-bottom: 7vh;
+}
+.FB,
+.Gmail,
+.Linked {
+  background-color: white;
+  width: 7vh;
+  height: 7vh;
+  border-radius: 15px;
+  border: 1px SOLID #e8e8e8;
+  margin: 10px;
+}

@@ -1,0 +1,9 @@
+.sign_up_wrapper {
+  width: 50vw;
+  height: 80vh;
+  background-color: white;
+  box-shadow: 2px 2px 14px -1px rgba(0, 0, 0, 0.74);
+  -webkit-box-shadow: 2px 2px 14px -1px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow: 2px 2px 14px -1px rgba(0, 0, 0, 0.74);
+  border-radius: 25px;
+}
