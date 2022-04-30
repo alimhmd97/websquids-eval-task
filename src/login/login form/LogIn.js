@@ -1,22 +1,19 @@
 import { Formik, Form } from "formik";
 import { TextField } from "./TextField";
 import * as Yup from "yup";
-import logo from "../../../assets/IHistopathology-Logo.png";
-import styles from "./signUpForm.module.css";
-import { auth } from "../../../firebase";
+import logo from "../../assets/IHistopathology-Logo.png";
+import styles from "./loginForm.module.css";
+import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LogInForm() {
-  const history = useHistory();
+  let navigate = useNavigate();
   const submitHandler = async (values) => {
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-      history.push("/");
+      await signInWithEmailAndPassword(auth, values.email, values.password);
+      navigate("/");
     } catch (error) {
       alert(error.message);
     }
@@ -62,10 +59,13 @@ function LogInForm() {
             <button
               className={`btn  mt-3 w-100 mt-3 ${styles.sign_up_btn}`}
               type='submit'>
-              Sign Up
+              Login
             </button>
           </Form>
-          <p> already have an account? Login</p>
+          <p>
+            {" "}
+            Dont have an account ? <Link to={"/SignUp"}>SignUp</Link>
+          </p>
           <p className={styles.sign_up_options}>or create account with</p>
           <button className={styles.Gmail}>G+</button>{" "}
           <button className={styles.FB}>f</button>

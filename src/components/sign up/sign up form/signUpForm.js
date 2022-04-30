@@ -5,18 +5,15 @@ import logo from "../../../assets/IHistopathology-Logo.png";
 import styles from "./signUpForm.module.css";
 import { auth } from "../../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useHistory } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function SignUpForm() {
-  const history = useHistory();
+  let navigate = useNavigate();
   const submitHandler = async (values) => {
     try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-      history.push("/");
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
+      navigate("/");
     } catch (error) {
       alert(error.message);
     }
@@ -32,6 +29,11 @@ function SignUpForm() {
       .min(6, "Password must be at least 6 charaters")
       .required("Password is required"),
   });
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {});
+
+    return unsubscribe;
+  }, []);
 
   return (
     <Formik
@@ -75,7 +77,10 @@ function SignUpForm() {
               Sign Up
             </button>
           </Form>
-          <p> already have an account? Login</p>
+          <p>
+            {" "}
+            already have an account? <Link to={"/Login"}>Login</Link>
+          </p>
           <p className={styles.sign_up_options}>or create account with</p>
           <button className={styles.Gmail}>G+</button>{" "}
           <button className={styles.FB}>f</button>

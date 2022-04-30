@@ -13,8 +13,8 @@
   height: 2px;
   background-color: black;
   position: absolute;
-  top: 74.8vh;
-  left: 62.5vw;
+  top: 65vh;
+  left: 60vw;
 }
 .sign_up_options:after {
   content: "";
@@ -22,8 +22,8 @@
   height: 2px;
   background-color: black;
   position: absolute;
-  top: 74.8vh;
-  left: 47vw;
+  top: 65vh;
+  left: 49vw;
 } */
 .sign_up_options {
   font-size: 0.8rem;
@@ -41,7 +41,7 @@
   height: 7vh;
   border-radius: 15px;
   border: 1px SOLID #e8e8e8;
-  margin: 10px;
+  margin: 5px;
 }
 @media only screen and (max-width: 992px) {
   .logo_wrapper {

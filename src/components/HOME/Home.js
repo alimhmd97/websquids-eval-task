@@ -1,5 +1,10 @@
+import welcomeImg from "../../assets/1.jpg";
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div className={"text-primary"}>
+      <img src={welcomeImg} />
+    </div>
+  );
 }
 
-export default Home;
+export { Home };
