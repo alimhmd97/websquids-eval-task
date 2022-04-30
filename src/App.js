@@ -4,14 +4,26 @@ import PrivateRoute from "./contexts/PrivateRouth";
 import { Login } from "./login/login";
 import { SignUp } from "./components/sign up/SignUp";
 import { Home } from "./components/HOME/Home";
+import { auth } from "./firebase";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const unsubscribe = auth.onAuthStateChanged((user) => {
+    setUser(user);
+    console.log(user);
+  });
+  useEffect(() => {
+    return unsubscribe;
+  }, []);
   return (
     <div className='App'>
       {" "}
       <Router>
         <Routes>
-          <Route path='/' element={<Home />} />
+          {(user && <Route path='/' element={<Home />} />) || (
+            <Route path='/SignUp' element={<SignUp />} />
+          )}
           <Route path='/Login' element={<Login />} />
           <Route path='/SignUp' element={<SignUp />} />
         </Routes>
