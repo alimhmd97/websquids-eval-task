@@ -68,9 +68,7 @@ function LogInForm() {
           </p>
           <p className={styles.sign_up_options}>or create account with</p>
           <button className={styles.Gmail}>G+</button>{" "}
-          {/* <Link to={"https://websquids-auth.firebaseapp.com/__/auth/handler"}> */}{" "}
           <button className={styles.FB}>f</button>
-          {/* </Link> */}
           <button className={styles.Linked}>in</button>
         </div>
       )}

@@ -1,19 +1,24 @@
 import welcomeImg from "../../assets/1.jpg";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
 function Home() {
-  const navigate = useNavigate();
   const logOut = async () => {
     await signOut(auth);
-    navigate("/Login");
   };
 
   return (
-    <div className={"text-primary"}>
-      {console.log(10)}
+    <div
+      className={"text-primary"}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
       <img src={welcomeImg} />
-      <button className={"btn btn-primary px-5 py-2"} onClick={logOut}>
+      <button
+        className={"btn btn-primary px-5 py-2"}
+        style={{ width: "400px" }}
+        onClick={logOut}>
         Log Out
       </button>
     </div>

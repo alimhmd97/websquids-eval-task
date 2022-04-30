@@ -11,7 +11,6 @@ function App() {
   const [user, setUser] = useState(null);
   const unsubscribe = auth.onAuthStateChanged((user) => {
     setUser(user);
-    console.log(user);
   });
   useEffect(() => {
     return unsubscribe;
@@ -21,8 +20,10 @@ function App() {
       {" "}
       <Router>
         <Routes>
-          {(user && <Route path='/' element={<Home />} />) || (
-            <Route path='/SignUp' element={<SignUp />} />
+          {user ? (
+            <Route path='/' element={<Home />} />
+          ) : (
+            <Route path='/' element={<Login />} />
           )}
           <Route path='/Login' element={<Login />} />
           <Route path='/SignUp' element={<SignUp />} />
